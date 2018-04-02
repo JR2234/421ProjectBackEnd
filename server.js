@@ -21,9 +21,9 @@ app.post('/api/message',checkAuthenticated, message.post);
 app.post('/auth/register', auth.register);
 
 //Connection
-mongoose.connect("mongodb://localhost:27017/test", function (err, db) {
+mongoose.connect("mongodb://localhost:27017/PostDB", function (err, db) {
     if (!err) {
-        console.log("we are connected to mongo");
+        console.log("Connected to MongoDB");
     }
 })
 
