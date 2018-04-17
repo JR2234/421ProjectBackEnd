@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 
 var auth = require('./controllers/auth');
 var message = require('./controllers/message');
+var comment = require('./controllers/comment')
 var checkAuthenticated = require('./services/checkAuthenticated');
 var cors = require('./services/cors');
 
@@ -17,6 +18,8 @@ app.use(cors);
 app.get('/api/message', message.get);
 
 app.post('/api/message',checkAuthenticated, message.post);
+
+app.post('/api/comment', checkAuthenticated, comment.post);
 
 app.post('/auth/register', auth.register);
 

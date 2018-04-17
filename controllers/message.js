@@ -2,7 +2,7 @@ var Message = require('../models/message');
 
 module.exports = {
     get: function (req, res) {
-        Message.find({}).populate('user', '-pwd').exec(function (err, result) {
+        Message.find({}).populate('user', '-pwd').populate({path: 'comments', select: 'cmt username'}).exec(function (err, result) {
             res.send(result);
         })
     },
